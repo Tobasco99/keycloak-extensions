@@ -1,5 +1,0 @@
-src/node_modules
-src/web_modules
-/resources/*
-
-!/resources/content.json
