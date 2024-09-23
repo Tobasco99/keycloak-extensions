@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 import {AccountServiceContext} from "../../account-service/AccountServiceContext";
 import {ContentPage} from "../ContentPage";
 import {withRouter, RouteComponentProps} from 'react-router-dom';
