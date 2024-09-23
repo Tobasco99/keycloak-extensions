@@ -1,49 +1,95 @@
 [
   {
-    "id": "keycloak-man",
-    "icon": "pf-icon-key",
-    "label": "Keycloak Man",
-    "descriptionLabel": "Let Keycloak Man teach you how to theme and extend the Account Console.",
-    "children": [
+    "id": "personal-info",
+    "path": "personal-info",
+    "icon": "pf-icon-user",
+    "label": "personalInfoSidebarTitle",
+    "descriptionLabel": "personalInfoIntroMessage",
+    "modulePath": "/content/account-page/AccountPage.js",
+    "componentName": "AccountPage"
+  },
+  {
+    "id": "security",
+    "icon": "pf-icon-security",
+    "label": "accountSecuritySidebarTitle",
+    "descriptionLabel": "accountSecurityIntroMessage",
+    "content": [
       {
-        "path": "content/keycloak-man",
-        "label": "Who is Keycloak Man?",
-        "modulePath": "/content/keycloak-man/who-is-keycloak-man.js"
+        "id": "signingin",
+        "path": "security/signingin",
+        "label": "signingInSidebarTitle",
+        "modulePath": "/content/signingin-page/SigningInPage.js",
+        "componentName": "SigningInPage"
       },
       {
-        "path": "content/sample-overview",
-        "label": "Overview of this extension",
-        "modulePath": "/content/keycloak-man/sample-overview.js"
+        "id": "device-activity",
+        "path": "security/device-activity",
+        "label": "deviceActivitySidebarTitle",
+        "modulePath": "/content/device-activity-page/DeviceActivityPage.js",
+        "componentName": "DeviceActivityPage"
       },
       {
-        "path": "content/keycloak-man-loves-jsx",
-        "label": "Keycloak Man Loves JSX",
-        "modulePath": "/content/keycloak-man/KeycloakManLovesJsx.js"
+        "id": "linked-accounts",
+        "path": "security/linked-accounts",
+        "label": "linkedAccountsSidebarTitle",
+        "modulePath": "/content/linked-accounts-page/LinkedAccountsPage.js",
+        "componentName": "LinkedAccountsPage",
+        "hidden": "!features.isLinkedAccountsEnabled"
       }
     ]
   },
   { "label": "personalInfo", "path": "/" },
   {
-    "label": "accountSecurity",
-    "children": [
-      { "label": "signingIn", "path": "account-security/signing-in" },
-      { "label": "deviceActivity", "path": "account-security/device-activity" },
-      {
-        "label": "linkedAccounts",
-        "path": "account-security/linked-accounts",
-        "isVisible": "isLinkedAccountsEnabled"
-      }
-    ]
+    "id": "applications",
+    "icon": "pf-icon-applications",
+    "path": "applications",
+    "label": "applications",
+    "descriptionLabel": "applicationsIntroMessage",
+    "modulePath": "/content/applications-page/ApplicationsPage.js",
+    "componentName": "ApplicationsPage"
   },
   { "label": "applications", "path": "applications" },
   {
-    "label": "groups",
+    "id": "groups",
     "path": "groups",
-    "isVisible": "isViewGroupsEnabled"
+    "icon": "pf-icon-server-group",
+    "label": "groupLabel",
+    "descriptionLabel": "groupDescriptionLabel",
+    "modulePath": "/content/group-page/GroupsPage.js",
+    "componentName": "GroupsPage",
+    "hidden": "!features.isViewGroupsEnabled"
   },
   {
-    "label": "resources",
+    "id": "resources",
+    "icon": "pf-icon-repository",
     "path": "resources",
-    "isVisible": "isMyResourcesEnabled"
+    "label": "resources",
+    "descriptionLabel": "resourceIntroMessage",
+    "modulePath": "/content/my-resources-page/MyResourcesPage.js",
+    "componentName": "MyResourcesPage",
+    "hidden": "!features.isMyResourcesEnabled"
+  },
+  {
+    "id": "user-clients",
+    "icon": "pf-icon-key",
+    "label": "User-Clients",
+    "descriptionLabel": "Manage your own clients to which only you have access",
+    "content": [
+      {
+        "id": "user-clients-list",
+        "path": "userClients",
+        "label": "User-Client List",
+        "modulePath": "/content/learning-layers-account/UserClientPage.js",
+        "componentName": "UserClientPage"
+      },
+      {
+        "id": "manage-client",
+        "path": "userClients/client",
+        "urlParameter": "/:id?",
+        "label": "Create Client",
+        "modulePath": "/content/learning-layers-account/ManageClientPage.js",
+        "componentName": "ManageClientPage"
+      }
+    ]
   }
 ]

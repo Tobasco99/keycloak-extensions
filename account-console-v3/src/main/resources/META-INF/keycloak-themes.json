@@ -1,6 +1,6 @@
 {
   "themes": [{
-    "name" : "keycloak-man",
+    "name" : "learning-layers-account",
     "types": [ "account" ]
   }]
 }

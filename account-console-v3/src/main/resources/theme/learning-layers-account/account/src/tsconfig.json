@@ -21,6 +21,10 @@
     "jsx": "react-jsx"
   },
   "include": [
-    "**/*.tsx"
+    "**/*.tsx",
+    "./app/**/*.ts?"
   ],
+  "files": [
+    "../../../../../../../../adapters/oidc/js/src/main/resources/keycloak.d.ts"
+  ]
 }

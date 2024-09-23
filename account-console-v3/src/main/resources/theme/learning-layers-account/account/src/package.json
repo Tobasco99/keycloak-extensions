@@ -1,7 +1,7 @@
 {
-  "name": "keycloak-man",
+  "name": "keycloak.v3",
   "version": "1.0.0",
-  "description": "Sample theme showing how to extend and modify the Account Console",
+  "description": "keycloak account management written in React",
   "scripts": {
     "build": "./esbuild.mjs"
   },
