@@ -46,7 +46,7 @@ export interface ComponentPageDef extends PageDef {
 export interface ModulePageDef extends PageDef {
     modulePath: string;
     componentName: string;
-    module: React.Component; // computed value
+    module: { [key: string]: React.ComponentType }; // computed value
 }
 
 export function isModulePageDef(item: ContentItem): item is ModulePageDef {
@@ -160,7 +160,8 @@ export function makeRoutes(): React.ReactNode {
 
     const routes: React.ReactElement<Route>[] = pageDefs.map((page: PageDef) => {
         if (isModulePageDef(page)) {
-            const node: React.ReactNode = React.createElement(page.module[page.componentName], {'pageDef': page});
+            const Component = page.module[page.componentName as keyof typeof page.module];
+            const node: React.ReactNode = <Component {...(page as any)} />;
             // extension for client creation
             if(page.urlParameter !== undefined) {
                 return <Route key={page.itemId} path={'/' + page.path + page.urlParameter} render={() => node} />;

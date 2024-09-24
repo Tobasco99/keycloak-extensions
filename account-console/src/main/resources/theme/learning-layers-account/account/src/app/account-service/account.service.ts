@@ -22,7 +22,7 @@ declare const baseUrl: string;
 
 type ConfigResolve = (config: RequestInit) => void;
 
-export interface HttpResponse<T = {}> extends Response {
+export interface HttpResponse<T = unknown> extends Response {
     data?: T;
 }
 
@@ -105,12 +105,13 @@ export class AccountServiceClient {
         }
 
         if (response !== null && response.data != null) {
-            if (response.data['errors'] != null) {
-                for(let err of response.data['errors'])
-                    ContentAlert.danger(err['errorMessage'], err['params']);
+            const data = response.data as { errors?: { errorMessage: string, params?: any }[]; errorMessage?: string; error?: string } || {};
+            if (data.errors != null) {
+                for(let err of data.errors)
+                    ContentAlert.danger(err.errorMessage, err.params);
             } else {
                 ContentAlert.danger(
-                `${response.statusText}: ${response.data['errorMessage'] ? response.data['errorMessage'] : ''} ${response.data['error'] ? response.data['error'] : ''}`);
+                `${response.statusText}: ${data.errorMessage ? data.errorMessage : ''} ${data.error ? data.error : ''}`);
             };
         } else {
             ContentAlert.danger(response.statusText);

@@ -10,7 +10,7 @@
 	<description>Parent</description>
 
 	<modules>
-		<module>account-console-v3</module>
+		<module>account-console</module>
 		<module>client-user-linkage</module>
 	</modules>
 

@@ -89,7 +89,7 @@ initGroupAndItemIds();
 function loadModule(modulePage: ModulePageDef): Promise<ModulePageDef> {
     return new Promise ((resolve, reject) => {
         console.log('loading: ' + resourceUrl + modulePage.modulePath);
-        import(resourceUrl + modulePage.modulePath).then( (module: React.Component) => {
+        import(resourceUrl + modulePage.modulePath).then((module: { [key: string]: React.ComponentType<{}> }) => {
             modulePage.module = module;
             resolve(modulePage);
         }).catch((error: Error) => {

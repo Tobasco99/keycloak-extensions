@@ -194,7 +194,7 @@ export class ManageClient extends React.Component<ManagePageProps, ManagePageSta
         const target = event.currentTarget;
         const name = target.name;
 
-        let tmp = this.state.client.attributes;
+        let tmp: { [key: string]: string } = this.state.client.attributes;
         if(target.type == 'number'){
             tmp[name] = (parseInt(value)*60).toString();
         } else {

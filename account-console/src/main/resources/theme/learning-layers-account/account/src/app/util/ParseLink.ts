@@ -13,7 +13,9 @@ function parse(linkHeader: string | undefined): Links {
     const linkUrl = matcher[1];
     const rel = matcher[2].match(/\s*(.+)\s*=\s*"?([^"]+)"?/);
     if (rel) {
-        acc[rel[2]] = linkUrl;
+        if (rel[2] === 'prev' || rel[2] === 'next') {
+            acc[rel[2] as 'prev' | 'next'] = linkUrl;
+        }
     }
     return acc;
   }, {});
