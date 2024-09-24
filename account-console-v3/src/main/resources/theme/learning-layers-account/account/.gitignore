@@ -1,6 +1,0 @@
-# Do not commit, installed at compile time
-src/node_modules
-src/web_modules
-/resources/*
-
-!/resources/content.json
